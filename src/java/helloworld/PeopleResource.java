@@ -31,6 +31,7 @@ public class PeopleResource {
     @GET
     @Produces("text/plain")
     public String getNames() {
+        //String joining using Java 8 collectors
         List<String> list = Arrays.asList(peopleBean.getNames());
         return list.stream().collect(Collectors.joining(", "));
     }
