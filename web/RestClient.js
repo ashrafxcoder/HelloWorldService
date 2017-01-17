@@ -1,3 +1,4 @@
+//Javascript client
 var app = {
     // Create this closure to contain the cached modules
     module: function () {
