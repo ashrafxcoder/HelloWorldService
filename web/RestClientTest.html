@@ -1,0 +1,44 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js'></script>
+        <script src='RestClient.js'></script>
+    </head>
+    <body>
+
+
+
+        
+        
+        <h1 id="names"></h1>
+
+        <!-- Templates -->
+
+
+
+        <script>
+            $(function(){
+               
+        //$.ajax("http://localhost:8080/HelloWorldService/resources/people");
+                $.ajax({
+                    url: "http://localhost:8080/HelloWorldService/resources/people"
+                }).done(function ( data ) {
+                    $("#names").text(data);
+                  if( console && console.log ) {
+                    console.log("Sample of data:", data.slice(0, 100));
+                  }
+                });   
+            });
+        </script>
+
+    </body>
+</html>
