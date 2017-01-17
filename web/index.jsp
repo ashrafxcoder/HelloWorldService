@@ -13,10 +13,7 @@
         <h1>Hello From JSP</h1>
         
         
-        <%!
-        
-        //String[] names = 
-        %> 
+        <p>This is a test page</p>
         
     </body>
 </html>
