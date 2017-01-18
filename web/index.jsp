@@ -10,10 +10,19 @@
     </head>
     <body>
         
-        <h1>Hello From JSP</h1>
+        <h1>Add a new Person</h1>
         
         
         <p>This is a test page</p>
+
+        <form method="POST" action="http://localhost:8080/HelloWorldService/api/people">
+            <input type="text" name="name"/>
+            <input type="text" name="age" />
+            <button type="submit" value="Add"/>
+        </form>
+        
+        
+        
         
     </body>
 </html>
