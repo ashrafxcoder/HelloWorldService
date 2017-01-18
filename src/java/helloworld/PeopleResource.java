@@ -16,6 +16,10 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.GenericEntity;
+import javax.ws.rs.core.MediaType;
+import javax.xml.bind.JAXBElement;
+import models.PeopleDOA;
+import models.Person;
 
 /**
  *
@@ -40,5 +44,15 @@ public class PeopleResource {
     @Consumes("text/plain")
     public void setNames(String[] content) {
         peopleBean.setNames(content);
+    }
+    
+    
+    
+    @GET
+    @Path("all")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Person> getPeople(){
+        PeopleDOA peopleDoa = new PeopleDOA();
+        return peopleDoa.getPeople();
     }
 }
