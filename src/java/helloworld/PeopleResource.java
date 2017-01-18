@@ -11,13 +11,17 @@ import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.GenericEntity;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.xml.bind.JAXBElement;
+import javax.ws.rs.core.Request;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import models.PeopleDOA;
 import models.Person;
 
@@ -29,6 +33,12 @@ import models.Person;
 @Path("/people")
 public class PeopleResource {
 
+    @Context UriInfo uriInfo;
+    @Context Request request;
+    
+    
+    
+    
     @EJB
     private PeopleBean peopleBean;
 
@@ -46,13 +56,21 @@ public class PeopleResource {
         peopleBean.setNames(content);
     }
     
-    
-    
     @GET
     @Path("all")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Person> getPeople(){
         PeopleDOA peopleDoa = new PeopleDOA();
-        return peopleDoa.getPeople();
+        return peopleBean.getPeople();
+    }
+    
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response putPerson(@FormParam("name") String name, @FormParam("age") int age) {
+        peopleBean.AddPerson(name, age);
+        Response response = Response.created(uriInfo.getAbsolutePath()).build();
+        return response;
     }
 }
