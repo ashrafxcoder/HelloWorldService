@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Ashraf-XCODER
  */
+//XmlRootBinding annotation added
 @XmlRootElement
 public class Person {
     private String name;
