@@ -62,7 +62,7 @@ public class CityFacadeREST extends AbstractFacade<City> {
 
     @GET
     @Override
-    @Produces({"application/xml", "application/json"})
+    @Produces({"application/json"})
     public List<City> findAll() {
         return super.findAll();
     }
