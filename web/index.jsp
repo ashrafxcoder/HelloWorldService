@@ -15,11 +15,15 @@
         
         <p>This is a test page</p>
 
-        <form method="POST" action="http://localhost:8080/HelloWorldService/api/people">
+        
+        <div style="border: 1px solid black; width: 80%;height: 50%">
+            <form method="POST" action="http://localhost:8080/HelloWorldService/api/people">
             <input type="text" name="name"/>
             <input type="text" name="age" />
             <button type="submit" value="Add"/>
         </form>
+        </div>
+        
         
         
         
